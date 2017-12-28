@@ -36,7 +36,9 @@ public class Teleprinter {
                     .skip(1)                                                // skip header
                     .filter(line -> !line.startsWith(","))                  // skip empty lines
                     .filter(line -> onOrAfter(line, startDate))
-                    .filter(line -> onOrBefore(line, endDate));
+                    .filter(line -> onOrBefore(line, endDate))
+                    .map(line -> line+"\n")
+            ;
         } catch (IOException ioe) {
             // TODO something
         }
